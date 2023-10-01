@@ -26,7 +26,7 @@ public class OracleConfigDS {
 	}
 	@Bean("oracleContainer")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder) {
-		//Creaaring Map object having Hibernate properties
+		//Creating Map object having Hibernate properties
 		
 		Map<String,Object> props=new HashMap<>();
 		props.put("hibernate.dialect","org.hibernate.dialect,Oracle10gDialect" );
