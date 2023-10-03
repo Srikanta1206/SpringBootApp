@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.sri.product.Product;
 import com.sri.service.IServiceMgmt;
+import com.sri.user.User;
 
 @Component
 public class RunnerApp implements CommandLineRunner {
@@ -15,7 +16,11 @@ public class RunnerApp implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Product p1=new Product();
-		p1.setName("Srikanta");
-		System.out.println(service.addProductDetails(p1));
+		User u=new User();
+		p1.setName("Electric");
+		u.setContactno(9776705368l);
+		u.setMail("sksabat@12gmail.com");
+		u.setName("Srikanta Kumar Sabata");
+		System.out.println(service.addProductDetails(p1,u));
 	}
 }
