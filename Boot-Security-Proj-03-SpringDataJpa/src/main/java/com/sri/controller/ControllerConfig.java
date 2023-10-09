@@ -41,10 +41,11 @@ public class ControllerConfig {
 	
 	@GetMapping("/show_login")
 	public String getLoginPage() {
+		
 		return "custom_login";
 	}
 	
-	//Working with reference data like List,set,Map,Array
+	//Working with reference data like List,set,Map,Array(radio,checkboxes,multiple selection
 	@ModelAttribute("rolesinfo")
 	public String[] getRole() {
 		String[] roles=new String[] {"Manager","Clerk","Customer","Admin"};

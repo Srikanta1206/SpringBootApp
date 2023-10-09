@@ -1,0 +1,9 @@
+{
+	"properties": [
+		{
+			"name": "emp.ename.required",
+			"type": "java.lang.String",
+			"description": "A description for 'emp.ename.required'"
+		}
+	]
+}

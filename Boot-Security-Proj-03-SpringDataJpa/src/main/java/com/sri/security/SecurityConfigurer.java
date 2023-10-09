@@ -35,7 +35,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		.antMatchers("/bank/withdraw").hasAnyRole("Manager","Customer")
 		.antMatchers("/bank/loan_apply").hasRole("Customer")
 		.and()
-		.formLogin().defaultSuccessUrl("/bank/", true)
+		.formLogin().defaultSuccessUrl("/bank/", true).loginPage("/user/show_login").loginProcessingUrl("/login").permitAll()
 		.and()
 		.logout()
 		.and()

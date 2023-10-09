@@ -10,7 +10,7 @@
 <h1 style="color:red;text-align:center">Login</h1>
 
 <table>
-<form action="login" method="post">
+<form action="/login" method="post">
 <tr>
 <td>Enter Username</td>
 <td><input type="text" name="username"></td>
@@ -20,7 +20,7 @@
 <td><input type="password" name="password"></td>
 </tr>
 <tr>
-<td><input type="submit" value="login"></td>
+<td><input type="submit" value="Login"></td>
 </tr>
 </form>
 </table>
