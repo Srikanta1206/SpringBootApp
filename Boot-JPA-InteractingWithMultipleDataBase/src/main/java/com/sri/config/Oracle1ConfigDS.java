@@ -11,7 +11,6 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -26,7 +25,7 @@ import jakarta.persistence.EntityManagerFactory;
 						transactionManagerRef = "txMgmt1",
 						entityManagerFactoryRef ="oracle1EMF" )
 public class Oracle1ConfigDS {
-
+	//for communicating multiple database sw or table then manually create datasource,EntityManagerFactoryBean,TransationManager obj
 	@Bean(name = "oracle1Ds")
 	@ConfigurationProperties(prefix = "oracle1.datasource")
 	public DataSource createOracleDs() {
