@@ -29,6 +29,5 @@ public class ServletInitializer extends SpringBootServletInitializer {
 		LocaleChangeInterceptor inter=new LocaleChangeInterceptor();
 		inter.setParamName("lang");
 		return inter;
-	}
-	
+	}	
 }
