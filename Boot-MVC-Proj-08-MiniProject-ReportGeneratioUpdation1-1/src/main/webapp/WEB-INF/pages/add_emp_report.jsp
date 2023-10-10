@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+ <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,20 +21,20 @@
 		</p>
 		<table align=center>
 			<tr>
-				<td>Enter Employee Name</td>
-				<td><form:input path="ename"/><span id="enameErr"></span></td>
+				<td>Enter name</td>
+				<td><form:input path="ename"/><form:errors path="ename" cssStyle="color:red"/></td>
 			</tr>
 			<tr>
-				<td>Enter Employee Desg</td>
-				<td><form:input path="desg" /><span id=desgErr></span></td>
+				<td>Enter Desgiation</td>
+				<td><form:input path="desg" /><form:errors path="desg" cssStyle="color:red"/></td>
 			</tr>
 			<tr>
 				<td>Enter sal</td>
-				<td><form:input path="sal" /><span id="salErr"></span></td>
+				<td><form:input path="sal" /><form:errors path="sal" cssStyle="color:red"/></td>
 			</tr>
 			<tr>
 				<td>Enter Deptno</td>
-				<td><form:input path="deptno"/><span id="deptnoErr"></span></td>
+				<td><form:input path="deptno"/><form:errors path="deptno" cssStyle="color:red"/></td>
 			</tr>
 
 			<tr>
@@ -41,5 +42,6 @@
 			</tr>
 		</table>
 	</form:form>
+	<a href="?lang=hi_IN">Hindi</a>
 </body>
 </html>

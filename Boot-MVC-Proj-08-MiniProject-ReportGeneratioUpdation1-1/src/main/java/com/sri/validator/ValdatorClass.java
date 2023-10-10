@@ -30,7 +30,7 @@ public class ValdatorClass implements Validator {
 		if (emp.getSal() == null)
 			errors.rejectValue("sal", "e.sal.required");
 		else if(emp.getSal()<1000 || emp.getSal()>100000)
-			errors.rejectValue("sal", "e.sal.range");
+			errors.rejectValue("sar", "e.sal.range");
 		else if(emp.getSal().isNaN())
 			errors.rejectValue("sal", "e.sal.numeric");
 			

@@ -32,69 +32,49 @@ public class Employee {
 
 	@Column
 	private Float sal;
-	
+
 	@Column
 	private Integer deptno;
-	
+
 	public Integer getDeptno() {
 		return deptno;
 	}
-
-
 
 	public void setDeptno(Integer deptno) {
 		this.deptno = deptno;
 	}
 
-
-
 	public Integer getEmpno() {
 		return empno;
 	}
-
-
 
 	public void setEmpno(Integer empno) {
 		this.empno = empno;
 	}
 
-
-
 	public String getEname() {
 		return ename;
 	}
-
-
 
 	public void setEname(String ename) {
 		this.ename = ename;
 	}
 
-
-
 	public String getDesg() {
 		return desg;
 	}
-
-
 
 	public void setDesg(String desg) {
 		this.desg = desg;
 	}
 
-
-
 	public Float getSal() {
 		return sal;
 	}
 
-
-
 	public void setSal(Float sal) {
 		this.sal = sal;
 	}
-
-
 
 	@Override
 	public String toString() {

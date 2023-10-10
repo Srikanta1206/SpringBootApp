@@ -54,10 +54,6 @@ public class ControllerMapping {
 
 	@GetMapping(path = { "/add_employee", "/add_emp" })
 	public String addEmpMappingDetail(Map<String, Object> map, @ModelAttribute Employee emp, BindingResult errors) {
-		/*
-		 * if(validator.supports(emp.getClass())) { validator.validate(emp, errors); }
-		 * if(errors.hasErrors()) { return "add_emp_report"; }
-		 */
 		map.put("employee", emp);
 		// return LVN
 		return "add_emp_report";
