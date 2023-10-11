@@ -34,20 +34,13 @@ public class ControllerMapping {
 		return "home";
 	}
 
-	/*
-	 * @GetMapping("/emp_list") public String getFormMapping(Map<String, Object>
-	 * map) { // Fetching all emp details List<Employee> List<Employee >emplist =
-	 * service.fetchEmployeeList(); // add emp report in model Attribute
-	 * map.put("emplist", emplist);
-	 * 
-	 * return "emp_report"; }
-	 */
-
 	@GetMapping("/emp_list")
-	public String getFormMapping(@PageableDefault(size = 3, page = 0, sort = "sal", direction = Direction.ASC) Pageable pageable,
+	public String getFormMapping(
+			@PageableDefault(size = 3, page = 0, sort = "sal", direction = Direction.ASC) Pageable pageable,
 			Map<String, Object> map) {
-		Page<Employee> pagedata = service.getPageDate(pageable); 
-		// set in BindingAwareModelObj
+
+		Page<Employee> pagedata = service.getPageDate(pageable);
+		// set in BindingAwareModelObj created inside Dispatcher servlet
 		map.put("empdata", pagedata);
 		return "emp_report";
 	}
@@ -61,6 +54,7 @@ public class ControllerMapping {
 
 	@PostMapping("/addEmpRecord")
 	public String addEmpRecord(@ModelAttribute Employee emp, BindingResult result) {
+		// Eanble server side form validation logic
 		if (validator.supports(emp.getClass())) {
 			validator.validate(emp, result);
 		}
@@ -85,9 +79,11 @@ public class ControllerMapping {
 	@PostMapping("/update_detail")
 	public String updatedEmpRecord(RedirectAttributes attributes, @ModelAttribute("employee") Employee emp,
 			BindingResult result) {
+		// Enable server side form validation logic
 		if (validator.supports(emp.getClass())) {
 			validator.validate(emp, result);
 		}
+
 		if (result.hasErrors()) {
 			return "update_emp";
 		}
@@ -95,7 +91,7 @@ public class ControllerMapping {
 		String res = service.updateEmpDetails(emp);
 		// set in redirect Scope
 		attributes.addFlashAttribute("ResultMsg", res);
-		// redirect to request path emp_list
+		// redirect to request path emp_list(Get mode)
 		return "redirect:emp_list";
 	}
 

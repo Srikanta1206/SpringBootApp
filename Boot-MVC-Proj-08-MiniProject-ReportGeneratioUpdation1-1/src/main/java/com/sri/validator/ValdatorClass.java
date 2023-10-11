@@ -27,7 +27,7 @@ public class ValdatorClass implements Validator {
 			errors.rejectValue("ename", "e.ename.minlength");
 
 		//for Salary Field
-		if (emp.getSal() == null)
+		if (emp.getSal() == null )
 			errors.rejectValue("sal", "e.sal.required");
 		else if(emp.getSal()<1000 || emp.getSal()>100000)
 			errors.rejectValue("sar", "e.sal.range");
