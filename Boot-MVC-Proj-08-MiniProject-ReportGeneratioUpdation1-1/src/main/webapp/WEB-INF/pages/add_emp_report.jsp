@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 	
  	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -15,12 +15,12 @@
 	<h1 style="color: red; text-align: center">Adding new Employee</h1>
 	<script type="text/javascript" src="script/validation.js">
 	</script>
-	<h1>Client side</h1>
+	
+	
 	<form:form action="addEmpRecord" modelAttribute="employee" onsubmit="return validator(this)">
 		<!-- * = all the form components -->
-		<p style="color: red; text-align: center">
-			<form:errors path="*" />
-		</p>
+		
+
 		<table align=center>
 			<tr>
 				<td><spring:message code="com.cust.name"/></td>

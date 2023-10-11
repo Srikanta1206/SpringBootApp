@@ -36,7 +36,7 @@
 
 						<td><a href="edit_employee?eno=${empobj.empno }"><img
 								src="images/edit.png" alt="edit" height=30px width=30px></a>&nbsp
-							&nbsp; <a href="delete_employee?eno=${empobj.empno }" onclick="confirm('are you want to delete the record')"><img
+							&nbsp; <a href="delete_employee?eno=${empobj.empno }" onclick="confirm('are you want to delete')"><img
 								alt="delete" src="images/delete.png" height=30px width=30px></a></td>
 
 					</tr>

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -17,11 +17,11 @@
 
 		<table>
 			<tr>
-				<td><spring:message code="com.cust.name" /></td>
+				<td><spring:message code="com.cust.regno" /></td>
 				<td><form:input path="empno" readonly="true" /></td>
 			</tr>
 			<tr>
-				<td>Enter Employee Name</td>
+				<td><spring:message code="com.cust.name" /></td>
 				<td><form:input path="ename" /><br> <form:errors
 						path="ename" cssStyle="color:red" /><span id="enameErr"></span></td>
 			</tr>
@@ -47,12 +47,12 @@
 			</tr>
 		</table>
 	</form:form>
-	<a href="?lang=en_US">English</a>
-	<a href="?lang=od_IN">Odia</a>
-	<a href="?lang=hi_IN">Hindi</a>
-	<a href="?lang=de_DE">German</a>
-	<a href="?lang=zh_CN">Chinese</a>
-	<a href="?lang=jpn_JA">Japanese</a>
+	<a href="?lang=en_US&eno=${employee.empno}">English</a>
+	<a href="?lang=od_IN&eno=${employee.empno}">Odia</a>
+	<a href="?lang=hi_IN&eno=${employee.empno}">Hindi</a>
+	<a href="?lang=de_DE&eno=${employee.empno}">German</a>
+	<a href="?lang=zh_CN&eno=${employee.empno}">Chinese</a>
+	<a href="?lang=jpn_JA&eno=${employee.empno}">Japanese</a>
 	<div class=home>
 		<h1 style="color: red; text-align: center">
 			<a href="./">Home</a>
