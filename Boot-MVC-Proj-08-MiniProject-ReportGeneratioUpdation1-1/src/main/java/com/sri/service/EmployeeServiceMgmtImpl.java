@@ -1,12 +1,18 @@
 package com.sri.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.sri.entity.Employee;
@@ -17,7 +23,13 @@ public class EmployeeServiceMgmtImpl implements IEmployeeServiceMgmt {
 
 	@Autowired
 	private EmployeeRepo repo;
-
+	
+	@Autowired
+	private JavaMailSender sender;
+	
+	@Value("${spring.mail.username")
+	private String sentFrom;
+	
 	@Override
 	public List<Employee> fetchEmployeeList() {
 		// fetch record from emp table,sort by employee name
@@ -28,7 +40,16 @@ public class EmployeeServiceMgmtImpl implements IEmployeeServiceMgmt {
 	public Optional<Employee> addEntity(Employee emp) {
 
 		Employee saveEmp = repo.save(emp);
+		
+		try {
+			mailSent(saveEmp.getEmpno()+" register successful",new String[] {"sksabat12@gmail.com"});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return Optional.ofNullable(saveEmp);
+		
 	}
 
 	@Override
@@ -60,5 +81,18 @@ public class EmployeeServiceMgmtImpl implements IEmployeeServiceMgmt {
 	public Page<Employee> getPageDate(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return repo.findAll(pageable);
+	}
+	
+	private void mailSent(String msg,String[] mail) throws Exception{
+		MimeMessage message=sender.createMimeMessage();
+		MimeMessageHelper helper=new MimeMessageHelper(message);
+		helper.setFrom(sentFrom);
+		helper.setCc(mail);
+		helper.setText(msg);
+		helper.setSentDate(new Date());
+		helper.setSubject("Yor credentials details");
+	
+		sender.send(message);
+		System.out.println("Mail sented successfully");
 	}
 }
