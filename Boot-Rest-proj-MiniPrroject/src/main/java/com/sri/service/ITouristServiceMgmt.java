@@ -10,4 +10,7 @@ public interface ITouristServiceMgmt {
 	String addRecord(Tourist tourist) throws Exception;
 	Set<Tourist> getAllTouristDetails();
 	Tourist getSpecificTouristDetails(Integer tid)throws TouristNotFoundException;
+	String updateTouristDetails(Tourist tourist) throws TouristNotFoundException;
+	String cancelTouristRegistration(Integer id)throws TouristNotFoundException;
+	
 }

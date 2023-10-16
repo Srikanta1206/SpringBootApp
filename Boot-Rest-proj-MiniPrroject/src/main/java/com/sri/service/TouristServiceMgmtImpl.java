@@ -3,6 +3,7 @@ package com.sri.service;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,12 +67,39 @@ public class TouristServiceMgmtImpl implements ITouristServiceMgmt {
 		// converting List to set
 		// return set of tourist object to controller class of b.logic method
 		return new LinkedHashSet<Tourist>(tDetails);
+
+		// Another logic
+
+		// List<Tourist> tourist=repository.findAll(Sort.by(Direction.ASC, "tId"));
+		// return new LinkedHashSet<Tourist>(tourist);
 	}
 
 	@Override
 	public Tourist getSpecificTouristDetails(Integer tid) throws TouristNotFoundException {
 		return repository.findById(tid).orElseThrow(
-				()->new TouristNotFoundException("No Tourist Details found based on this tid  :"+tid)						
-				);
-			}
+				() -> new TouristNotFoundException("No Tourist Details found based on this Tourist ID  :" + tid));
+	}
+
+	// Update Operation
+	@Override
+	public String updateTouristDetails(Tourist tourist) throws TouristNotFoundException {
+
+		Optional<Tourist> tDetails = repository.findById(tourist.gettId());
+		if (tDetails.isPresent()) {
+			Integer id = repository.save(tourist).gettId();
+			return "Tourist details updated successfully in tourist id :" + id;
+		} else
+			throw new TouristNotFoundException("Tourist Not Found Exception");
+	}
+
+	@Override
+	public String cancelTouristRegistration(Integer id) throws TouristNotFoundException {
+		Optional<Tourist> tDetails = repository.findById(id);
+		if (tDetails.isPresent()) {
+			repository.deleteById(id);
+			return "Registration cancelled/Deleted";
+		} else {
+			throw new TouristNotFoundException("No Tourist Available In this Id");
+		}
+	}
 }
