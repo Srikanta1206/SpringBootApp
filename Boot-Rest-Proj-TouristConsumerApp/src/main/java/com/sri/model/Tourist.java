@@ -1,16 +1,20 @@
 package com.sri.model;
 
 import java.io.Serializable;
+//In My IDE lombok is not working properly so i manually create cons,getter,setter,toString
+//use lombok suppliied annotation @Data,@AllArgConstrictor,@NoArgConstructor,@Getter,@Setter,@RequiredArgConstructor,@ToString,@NonNull
+
 public class Tourist implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private Integer tId;
     private String tName;
     private Byte age;
     private String tAddress;
     private Long contactNo;
     private String email;
-    private String journeyStarts;
-    private String journeyEnds;
+    private final String journeyStarts = "PURI";
+    private final String journeyEnds = "KEDARNATH";
     private Double budget;
 
     public Tourist(Integer tId, String tName, Byte age, String tAddress, Long contactNo, String email,
@@ -22,8 +26,7 @@ public class Tourist implements Serializable {
 	this.tAddress = tAddress;
 	this.contactNo = contactNo;
 	this.email = email;
-	this.journeyStarts = journeyStarts;
-	this.journeyEnds = journeyEnds;
+
 	this.budget = budget;
     }
 

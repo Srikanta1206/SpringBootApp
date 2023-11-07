@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.UrlResource;
@@ -16,8 +18,6 @@ import org.springframework.stereotype.Service;
 import com.sri.entity.Tourist;
 import com.sri.exception.TouristNotFoundException;
 import com.sri.repository.TouristRepository;
-
-import jakarta.mail.internet.MimeMessage;
 
 @Service
 public class TouristServiceMgmtImpl implements ITouristServiceMgmt {
@@ -97,7 +97,7 @@ public class TouristServiceMgmtImpl implements ITouristServiceMgmt {
 		Optional<Tourist> tDetails = repository.findById(id);
 		if (tDetails.isPresent()) {
 			repository.deleteById(id);
-			return "Registration cancelled/Deleted";
+			return "Registration cancelled/Deleted on tourist ID  :"+tDetails.get().gettId();
 		} else {
 			throw new TouristNotFoundException("No Tourist Available In this Id");
 		}
