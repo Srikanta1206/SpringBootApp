@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentController {
 
 	@GetMapping(path = {"/payBill","/card_payment","/pay"})
-	public ResponseEntity<String> payBill() {
+	public ResponseEntity<?> payBill() {
 		return new ResponseEntity<String>("We accept all type of payment",HttpStatus.OK);
 	}
 }

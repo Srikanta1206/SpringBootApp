@@ -13,7 +13,7 @@ public class MicroserviceProj02MsM01ConOrderServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MicroserviceProj02MsM01ConOrderServiceApplication.class, args);
 	}
-	@Bean
+	@Bean("restTemplate")
 	public RestTemplate createTemplateObj() {
 		return new RestTemplate();
 	}
