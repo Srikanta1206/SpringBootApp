@@ -276,16 +276,16 @@ ul li a:hover{
     <div class="main">
         <div class="navbar">
             <div class="icon">
-                <h2 class="logo">PraRoz</h2>
+                <img  src="./img/ILogo.jpeg" alt="IRCTC" class="logo"/>
             </div>
 
             <div class="menu">
                 <ul>
                     <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="./about">ABOUT</a></li>
                     <li><a href="#">SERVICE</a></li>
                     <li><a href="#">DESIGN</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="./signIn/contact">CONTACT</a></li>
                 </ul>
             </div>
 

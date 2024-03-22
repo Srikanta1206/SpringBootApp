@@ -1,6 +1,7 @@
 package com.sri.controller;
 
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sri.model.Customer;
+import com.sri.model.Place;
 import com.sri.service.ICustomerService;
-
-import ch.qos.logback.core.model.Model;
 
 @Controller
 @RequestMapping("/signIn")
@@ -27,7 +27,7 @@ public class SignInController {
 	}
 
 	@PostMapping("/signin")
-	public String completeSignIn(@ModelAttribute Customer customer) {
+	public String completeSignIn(@ModelAttribute Customer customer,@ModelAttribute Place place) {
 		if (!customer.getUsername().isEmpty()) {
 			if (!customer.getPassword().isEmpty()) {
 				return "search";
@@ -49,5 +49,15 @@ public class SignInController {
 
 		map.put("message", "Railway board will take care about your is data");
 		return "registrationComplete";
+	}
+	
+	@GetMapping("/contact")
+	public String contactDetails() {
+		return "contact";
+	}
+	
+	@ModelAttribute("city")
+	public Set<String> getCityName() {
+		return Set.of("Berhampur-BAM","Bhubaneswar-BBS");
 	}
 }

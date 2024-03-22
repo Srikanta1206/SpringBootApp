@@ -22,7 +22,7 @@
 			<!-- Links -->
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="./details">Details</a></li>
-				<li class="nav-item"><a class="nav-link" href="./contacts">Contact</a></li>
+				<li class="nav-item"><a class="nav-link" href="./signIn/contact">Contact</a></li>
 				<li class="nav-item"><a class="nav-link" href="./signIn/signin">SignIn</a></li>
 				
 				<!-- Dropdown -->
@@ -30,8 +30,8 @@
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop"
 					data-toggle="dropdown"> choice </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">About</a> 
-						<a class="dropdown-item" href="#">Contact</a> 
+						<a class="dropdown-item" href="./about">About</a> 
+						<a class="dropdown-item" href="./signIn/contact">Contact</a> 
 						<a class="dropdown-item" href="#">Book Ticket</a>
 					</div></li>
 			</ul>
